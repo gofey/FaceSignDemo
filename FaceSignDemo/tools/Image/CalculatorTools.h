@@ -69,7 +69,7 @@ CGPoint pRotate270(CGPoint p, CGFloat h,CGFloat w);
  *  @brief 点以屏幕横向向中心线的镜像点
  *
  *  @param p 原始点
- *  @param w 画布高
+ *  @param h 画布高
  *
  *  @return 镜像点
  *

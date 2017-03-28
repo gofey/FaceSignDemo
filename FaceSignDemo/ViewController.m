@@ -45,7 +45,7 @@
     self.activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(kDeviceWidth / 2 - 15, kDeviceHeight / 2 - 15, 30, 30)];
     [self.view addSubview:self.activityIndicator];
     
-    self.labelView = [[UILabel alloc] initWithFrame:CGRectMake(kDeviceWidth / 2 - 50, 20, 100, 30)];
+    self.labelView = [[UILabel alloc] initWithFrame:CGRectMake(kDeviceWidth / 2 - 50, 84, 100, 30)];
     [self.view addSubview:self.labelView];
     self.labelView.text = @"注册与验证";
     UIButton *regBtn = [UIButton buttonWithType:UIButtonTypeCustom];

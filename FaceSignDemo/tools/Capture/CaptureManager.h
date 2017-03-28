@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import <UIKit/UIKit.h>
+#define clamp(a) (a>255?255:(a<0?0:a))
 typedef NS_ENUM(NSUInteger, CaptureContextType){
     CaptureContextTypeRunningAndDeviceAuthorized,
     CaptureContextTypeCameraFrontOrBackToggle
@@ -28,12 +29,19 @@ typedef NS_ENUM(NSUInteger, CaptureContextType){
 
 @end
 
+@protocol CaptureNowImageDelegate <NSObject>
+
+@optional
+
+-(void)returnNowShowImage:(UIImage *)image;
+
+@end
 
 @interface CaptureManager : NSObject
 
 // delegate
 @property (nonatomic) id<CaptureManagerDelegate> delegate;
-
+@property (nonatomic) id<CaptureNowImageDelegate> nowImageDelegate;
 // Device orientation
 @property (nonatomic) CMMotionManager *motionManager;
 
@@ -48,6 +56,7 @@ typedef NS_ENUM(NSUInteger, CaptureContextType){
 @property (nonatomic) dispatch_queue_t videoDataOutputQueue;
 
 @property (nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
+
 @property (nonatomic) UIInterfaceOrientation interfaceOrientation;
 
 // Utilities.
@@ -65,9 +74,9 @@ typedef NS_ENUM(NSUInteger, CaptureContextType){
 - (void)removeObserver;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
 
-
 // functions
 - (void)cameraToggle;
 + (AVCaptureVideoOrientation)interfaceOrientationToVideoOrientation:(UIInterfaceOrientation)orientation;
+
 
 @end

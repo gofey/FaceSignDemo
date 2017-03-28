@@ -13,5 +13,5 @@
 #define RECT_ORI   @"RECT_ORI"
 
 @property (nonatomic , strong) NSArray *arrPersons ;
-
+@property (nonatomic , strong) NSArray *arrFixed;
 @end

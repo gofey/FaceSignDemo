@@ -75,7 +75,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
         AVCaptureDeviceInput *videoDeviceInput = [AVCaptureDeviceInput deviceInputWithDevice:videoDevice error:&error];
         
         if (error){
-            NSLog(@"%@", error);
+            NSLog(@"error3:%@", error);
         }
         
         if ([session canAddInput:videoDeviceInput]){
@@ -380,7 +380,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
             [device unlockForConfiguration];
         }
         else{
-            NSLog(@"%@", error);
+            NSLog(@"eorror4%@", error);
         }
     });
 }
@@ -394,7 +394,7 @@ static void * SessionRunningAndDeviceAuthorizedContext = &SessionRunningAndDevic
             [device unlockForConfiguration];
         }
         else{
-            NSLog(@"%@", error);
+            NSLog(@"error5%@", error);
         }
     }
 }
